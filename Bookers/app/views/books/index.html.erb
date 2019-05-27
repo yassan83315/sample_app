@@ -20,27 +20,28 @@
 			    		<%= book.body %>
 			    	</td>
 			    	<td>
-			    		<%= link_to "show", book_path(book.id) %>
+			    		<%= link_to "show", book_path(book.id),class: "show_#{book.id}" %>
 			    	</td>
 			    	<td>
-			    		<%= link_to "edit", edit_book_path(book.id) %>
+			    		<%= link_to "edit", edit_book_path(book.id),class: "edit_#{book.id}" %>
 			    	</td>
 			    	<td>
-			    		<%= link_to "Destroy",book_path(book.id), method: :delete %>
+			    		<%= link_to "Destroy",book_path(book.id), method: :delete ,class: "Destroy_#{book.id}" %>
 			    	</td>
-			<% end %>
+					<% end %>
+				</tr>
 		</tbody>
 	</table>
-<h2>New books</h2>			    </tr>
+<h2>New books</h2>
 
 
 <%= form_for(@book) do |f| %>
 
 	<h4> title</h4>
-	<%= f.text_field :title %>
+	<%= f.text_field :title,class: "book_title" %>
 
 	<h4> body</h4>
-	<%= f.text_area :body %>
+	<%= f.text_area :body,class: "book_body" %>
 
 	<%= f.submit 'create Book'%>
 
